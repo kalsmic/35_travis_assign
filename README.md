@@ -1,9 +1,7 @@
 # Andela35 TRAINING REPO
 
 [![Build Status](https://travis-ci.org/PatrickMugayaJoel/35_travis_assign.svg?branch=develop)](https://travis-ci.org/PatrickMugayaJoel/35_travis_assign)
-
 [![Coverage Status](https://coveralls.io/repos/github/PatrickMugayaJoel/35_travis_assign/badge.svg?branch=develop)](https://coveralls.io/github/PatrickMugayaJoel/35_travis_assign?branch=develop)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/a0b93ab4c8ea59ec747d/maintainability)](https://codeclimate.com/github/PatrickMugayaJoel/35_travis_assign/maintainability)
 
 This repo is to help learners easily follow along during the session.
