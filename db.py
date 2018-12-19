@@ -7,24 +7,22 @@ import os
 class DatabaseConnection:
     def __init__(self):
 
-        if os.getenv('DB_NAME') == 'test_db':
-            self.db_name = 'test_db'
-        else:
-            self.db_name = 'learn_db'
+        self.db_name = os.getenv('DB_NAME')
 
         try:
             self.connection = psycopg2.connect(
-                dbname=self.db_name, user='postgres', host='localhost', password='kengo1234', port=5432
+                dbname=self.db_name, user=os.environ.get("DB_USER"), host=os.environ.get("DB_HOST"), password=os.environ.get("DB_PASSWORD"), port=os.environ.get("DB_PORT")
             )
             self.connection.autocommit = True
             self.cursor = self.connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-            print('Connected to the database successfully.')
-            print(self.db_name)
-
             create_users_table = "CREATE TABLE IF NOT EXISTS users (userId SERIAL NOT NULL PRIMARY KEY, username TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL);"
 
             self.cursor.execute(create_users_table)
+
+            print('Connected to the database successfully.')
+            print(self.db_name)
+            
         except Exception as e:
             pprint(e)
             pprint('Failed to connect to the database.')
